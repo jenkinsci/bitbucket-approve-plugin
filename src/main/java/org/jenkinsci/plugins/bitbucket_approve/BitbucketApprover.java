@@ -108,7 +108,7 @@ public class BitbucketApprover extends Notifier {
      */
     private boolean isSuccessful(Response response) throws IOException {
         return response.isSuccessful() ||
-                (response.code() == HttpURLConnection.HTTP_CONFLICT && response.body().string().contains("You already approved this changeset."));
+                response.code() == HttpURLConnection.HTTP_CONFLICT;
     }
 
     @Override
